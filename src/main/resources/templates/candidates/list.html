@@ -23,11 +23,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="сandidate: ${candidates}">
-                <td th:text="${canditate.id}" />
-                <td th:text="${canditate.name}" />
-                <td th:text="${canditate.description}" />
-                <td th:text="${canditate.creationDate}" />
+            <tr th:each="candidate: ${candidates}">
+                <td th:text="${candidate.id}" />
+                <td th:text="${candidate.name}" />
+                <td th:text="${candidate.description}" />
+                <td th:text="${candidate.creationDate}" />
             </tr>
             </tbody>
         </table>
