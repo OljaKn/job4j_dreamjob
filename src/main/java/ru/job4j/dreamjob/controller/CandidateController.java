@@ -1,5 +1,6 @@
 package ru.job4j.dreamjob.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -7,7 +8,7 @@ import ru.job4j.dreamjob.model.Candidate;
 import ru.job4j.dreamjob.model.Vacancy;
 import ru.job4j.dreamjob.repository.CandidateRepository;
 import ru.job4j.dreamjob.repository.MemoryCandidateRepository;
-
+@Slf4j
 @Controller
 @RequestMapping("/candidates")
 public class CandidateController {
@@ -26,6 +27,7 @@ public class CandidateController {
 
     @PostMapping("/create")
     public String create(@ModelAttribute Candidate candidate) {
+        log.info("Candidate{}", candidate);
         candidateRepository.save(candidate);
         return "redirect:/candidates";
     }
