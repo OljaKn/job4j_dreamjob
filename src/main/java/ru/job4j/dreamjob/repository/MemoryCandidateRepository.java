@@ -18,11 +18,11 @@ public class MemoryCandidateRepository implements CandidateRepository {
 
     private MemoryCandidateRepository() {
         save(new Candidate(
-                0, "Иванов И.И", "Опыт в Java разработке 3 года", LocalDateTime.now()));
+                0, "Иванов И.И", "Опыт в Java разработке 3 года", LocalDateTime.now(), 1));
         save(new Candidate(
-                0, "Петров П.М.", "Большой опыт в работе с многопоточными приложениями", LocalDateTime.now()));
+                0, "Петров П.М.", "Большой опыт в работе с многопоточными приложениями", LocalDateTime.now(), 2));
         save(new Candidate(
-                0, "Сидоров П.Т.", "Проектирование баз данных", LocalDateTime.now()));
+                0, "Сидоров П.Т.", "Проектирование баз данных", LocalDateTime.now(), 3));
     }
 
     public Candidate save(Candidate candidate) {
@@ -39,7 +39,9 @@ public class MemoryCandidateRepository implements CandidateRepository {
     @Override
     public boolean update(Candidate candidate) {
         return candidates.computeIfPresent(candidate.getId(),
-                (id, oldCandidate) -> new Candidate(oldCandidate.getId(), candidate.getName(), candidate.getDescription(), candidate.getCreationDate())) != null;
+                (id, oldCandidate) ->
+                        new Candidate(oldCandidate.getId(), candidate.getName(),
+                                candidate.getDescription(), candidate.getCreationDate(), candidate.getCityId())) != null;
     }
 
     @Override
