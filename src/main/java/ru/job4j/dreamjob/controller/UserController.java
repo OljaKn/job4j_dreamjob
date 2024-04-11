@@ -26,8 +26,7 @@ public class UserController {
     }
 
      @GetMapping("/register")
-    public String getRegistrationPage(Model model, @ModelAttribute User user) {
-         model.addAttribute(userService.findByEmailAndPassword(user.getEmail(), user.getPassword()));
+    public String getRegistrationPage() {
          return "users/register";
     }
 }
