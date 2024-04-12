@@ -13,7 +13,6 @@ import java.util.Properties;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-@Disabled
 class Sql2oUserRepositoryTest {
     private static Sql2oUserRepository sql2oUserRepository;
     private static Sql2o sql2o;
